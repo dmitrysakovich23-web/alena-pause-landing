@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 :root {
+  --color-wine: #6f1428;
+  --color-wine-dark: #4a0d1b;
+  --color-wine-black: #211016;
+  --color-wine-panel: #32111f;
   color-scheme: light;
   background: #f4efe8;
 }
@@ -24,7 +28,7 @@ body {
 }
 
 ::selection {
-  background: #7f1d2d;
+  background: var(--color-wine);
   color: #fbf8f3;
 }
 

@@ -22,5 +22,5 @@ npm run build
 - `src/app/page.tsx` — главная страница лендинга
 - `src/app/success/page.tsx` — визуальная заглушка успешной оплаты
 - `src/components/*` — секции и переиспользуемые компоненты
-- `src/data/content.ts` — placeholder-контент для быстрой замены на реальные тексты
+- `src/data/content.ts` — контент лендинга, разложенный по секциям
 - `public/images/*` — исходные изображения для прототипа

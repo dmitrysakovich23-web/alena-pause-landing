@@ -30,7 +30,12 @@ export function SectionBlock({ section }: SectionBlockProps) {
           />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/45 to-transparent" />
         </div>
-        <div className={section.reverse ? "md:order-1" : ""}>
+        <div
+          className={[
+            "border-t border-burgundy/20 pt-7 md:border-t-0 md:pt-0",
+            section.reverse ? "md:order-1" : "",
+          ].join(" ")}
+        >
           <p className="mb-5 text-xs uppercase tracking-[0.28em] text-burgundy">
             {section.kicker}
           </p>

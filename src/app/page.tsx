@@ -8,14 +8,15 @@ import { TextAccordion } from "@/components/TextAccordion";
 import { landingContent } from "@/data/content";
 
 export default function Home() {
-  const { hero, intro, sections, accordion, inside, audience, gallery, cta } = landingContent;
+  const { hero, intro, sections, accordion, inside, audience, gallery, cta, footer } =
+    landingContent;
 
   return (
     <main>
       <Hero {...hero} />
 
       <section className="px-5 py-16 sm:py-24">
-        <div className="mx-auto grid max-w-6xl gap-8 border-b border-ink/15 pb-14 md:grid-cols-[0.8fr_1.2fr] md:gap-14">
+        <div className="mx-auto grid max-w-6xl gap-8 border-b border-burgundy/25 pb-14 md:grid-cols-[0.8fr_1.2fr] md:gap-14">
           <p className="text-xs uppercase tracking-[0.28em] text-burgundy">{intro.kicker}</p>
           <div>
             <h2 className="font-serif text-4xl font-medium leading-[1.02] text-balance sm:text-6xl">
@@ -49,7 +50,7 @@ export default function Home() {
               {inside.items.map((item, index) => (
                 <div
                   key={item}
-                  className="border-t border-ink/15 py-5 text-base leading-7 text-ink"
+                  className="border-t border-burgundy/20 py-5 text-base leading-7 text-ink"
                 >
                   <span className="mb-4 block text-xs uppercase tracking-[0.22em] text-burgundy">
                     {String(index + 1).padStart(2, "0")}
@@ -63,7 +64,10 @@ export default function Home() {
       </section>
 
       <section className="px-5 py-14 sm:py-20">
-        <div className="mx-auto grid max-w-6xl overflow-hidden bg-ink text-paper md:grid-cols-2">
+        <div
+          className="mx-auto grid max-w-6xl overflow-hidden text-paper md:grid-cols-2"
+          style={{ backgroundColor: "var(--color-wine-black)" }}
+        >
           <div className="relative min-h-[28rem]">
             <Image
               src={audience.image}
@@ -75,7 +79,10 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-ink/20" />
           </div>
-          <div className="px-6 py-10 sm:p-12">
+          <div
+            className="px-6 py-10 sm:p-12"
+            style={{ backgroundColor: "var(--color-wine-panel)" }}
+          >
             <p className="mb-5 text-xs uppercase tracking-[0.28em] text-paper/60">
               {audience.kicker}
             </p>
@@ -93,9 +100,9 @@ export default function Home() {
         </div>
       </section>
 
-      <ImageGrid images={gallery} />
+      <ImageGrid {...gallery} />
       <CTA {...cta} />
-      <Footer />
+      <Footer {...footer} />
     </main>
   );
 }

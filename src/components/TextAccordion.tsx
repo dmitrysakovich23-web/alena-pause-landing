@@ -19,7 +19,7 @@ export function TextAccordion({ kicker, title, items }: TextAccordionProps) {
         <h2 className="font-serif text-4xl font-medium leading-[1.02] text-balance sm:text-6xl">
           {title}
         </h2>
-        <div className="mt-9 divide-y divide-ink/15 border-y border-ink/15">
+        <div className="mt-9 divide-y divide-burgundy/20 border-y border-burgundy/25">
           {items.map((item, index) => {
             const isOpen = openIndex === index;
 
@@ -34,7 +34,7 @@ export function TextAccordion({ kicker, title, items }: TextAccordionProps) {
                   <span className="font-serif text-2xl leading-tight sm:text-3xl">
                     {item.title}
                   </span>
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/20 text-xl text-burgundy">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-burgundy/35 text-xl text-burgundy">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>

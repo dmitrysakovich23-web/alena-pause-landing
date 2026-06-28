@@ -8,7 +8,11 @@ const config: Config = {
         milk: "#f4efe8",
         ink: "#161412",
         muted: "#756d66",
-        burgundy: "#7f1d2d",
+        burgundy: "var(--color-wine)",
+        wine: "var(--color-wine)",
+        "wine-dark": "var(--color-wine-dark)",
+        "wine-black": "var(--color-wine-black)",
+        "wine-panel": "var(--color-wine-panel)",
         paper: "#fbf8f3",
       },
       fontFamily: {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 type CTAProps = {
+  eyebrow: string;
   title: string;
   description: string;
   button: string;
@@ -8,11 +9,11 @@ type CTAProps = {
   compact?: boolean;
 };
 
-export function CTA({ title, description, button, href = "/success", compact = false }: CTAProps) {
+export function CTA({ eyebrow, title, description, button, href = "/success", compact = false }: CTAProps) {
   return (
     <section className={compact ? "px-5 py-14" : "px-5 py-20 sm:py-24"}>
-      <div className="mx-auto max-w-5xl border-y border-ink/15 py-12 text-center sm:py-16">
-        <p className="mb-4 text-xs uppercase tracking-[0.28em] text-burgundy">ПАУЗА</p>
+      <div className="mx-auto max-w-5xl border-y border-burgundy/25 py-12 text-center sm:py-16">
+        <p className="mb-4 text-xs uppercase tracking-[0.28em] text-burgundy">{eyebrow}</p>
         <h2 className="mx-auto max-w-3xl font-serif text-5xl font-medium leading-[0.95] text-balance sm:text-7xl">
           {title}
         </h2>
