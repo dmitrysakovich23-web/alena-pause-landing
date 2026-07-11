@@ -6,24 +6,17 @@ type SectionBlockProps = {
 };
 
 export function SectionBlock({ section }: SectionBlockProps) {
-  const bodyClassName = [
-    "col-span-2 text-sm leading-6 text-muted sm:col-span-1 sm:col-start-2 sm:text-base sm:leading-8 md:text-lg md:leading-9",
-    section.title ? "mt-0 sm:mt-6" : "",
-    section.bodyLayout === "paragraphs" ? "space-y-4" : "",
-    section.reverse ? "lg:col-start-1 lg:order-1" : "",
-  ].join(" ");
-
   return (
     <section>
       <div
         className={[
-          "grid grid-cols-[5.75rem_minmax(0,1fr)] gap-4 border-t border-burgundy/20 py-5 sm:grid-cols-[minmax(13rem,38%)_minmax(0,1fr)] sm:gap-6 sm:py-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-9",
+          "grid grid-cols-1 gap-4 border-t border-burgundy/20 py-5 sm:grid-cols-[minmax(13rem,38%)_minmax(0,1fr)] sm:gap-6 sm:py-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-9",
           section.reverse ? "lg:grid-cols-[1.1fr_0.9fr]" : "",
         ].join(" ")}
       >
         <div
           className={[
-            "grain relative h-32 overflow-hidden bg-ink/10 shadow-soft sm:h-full sm:min-h-64 lg:aspect-[4/5] lg:min-h-0",
+            "grain relative aspect-[4/3] overflow-hidden bg-ink/10 shadow-soft sm:h-full sm:min-h-64 lg:aspect-[4/5] lg:min-h-0",
             section.reverse ? "lg:order-2" : "",
           ].join(" ")}
         >
@@ -51,24 +44,26 @@ export function SectionBlock({ section }: SectionBlockProps) {
               {section.title}
             </h2>
           ) : null}
+          {section.body.length > 0 && section.bodyLayout === "paragraphs" ? (
+            <div className={section.title ? "mt-4 space-y-4 text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "space-y-4 text-sm leading-6 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
+              {section.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          ) : null}
+          {section.body.length > 0 && section.bodyLayout === "lines" ? (
+            <div className={section.title ? "mt-4 text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "text-sm leading-6 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
+              {section.body.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
+          ) : null}
+          {section.body.length > 0 && !section.bodyLayout ? (
+            <p className={section.title ? "mt-4 text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "text-sm leading-6 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
+              {section.body.join(" ")}
+            </p>
+          ) : null}
         </div>
-        {section.body.length > 0 && section.bodyLayout === "paragraphs" ? (
-          <div className={bodyClassName}>
-            {section.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        ) : null}
-        {section.body.length > 0 && section.bodyLayout === "lines" ? (
-          <div className={bodyClassName}>
-            {section.body.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
-        ) : null}
-        {section.body.length > 0 && !section.bodyLayout ? (
-          <p className={bodyClassName}>{section.body.join(" ")}</p>
-        ) : null}
       </div>
     </section>
   );
