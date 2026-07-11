@@ -11,7 +11,7 @@ export default function Home() {
     <main>
       <Hero {...hero} />
 
-      <div className="px-4 py-8 sm:px-5 sm:py-12">
+      <div className="px-4 pb-4 pt-8 sm:px-5 sm:pb-5 sm:pt-12">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 sm:gap-7">
           {sections.map((section, index) => (
             <SectionBlock key={`${section.kicker}-${index}`} section={section} />
