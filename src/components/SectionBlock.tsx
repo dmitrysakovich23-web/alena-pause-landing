@@ -10,14 +10,14 @@ export function SectionBlock({ section }: SectionBlockProps) {
     <section>
       <div
         className={[
-          "grid grid-cols-[7.25rem_minmax(0,1fr)] gap-4 border-t border-burgundy/20 py-5 sm:grid-cols-[13rem_minmax(0,1fr)] sm:gap-6 sm:py-7 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-9",
-          section.reverse ? "md:grid-cols-[1.1fr_0.9fr]" : "",
+          "grid grid-cols-[7.25rem_minmax(0,1fr)] gap-4 border-t border-burgundy/20 py-5 sm:grid-cols-[minmax(13rem,38%)_minmax(0,1fr)] sm:gap-6 sm:py-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-9",
+          section.reverse ? "lg:grid-cols-[1.1fr_0.9fr]" : "",
         ].join(" ")}
       >
         <div
           className={[
-            "grain relative h-full min-h-40 overflow-hidden bg-ink/10 shadow-soft sm:min-h-64 md:aspect-[4/5] md:min-h-0",
-            section.reverse ? "md:order-2" : "",
+            "grain relative h-full min-h-40 overflow-hidden bg-ink/10 shadow-soft sm:min-h-64 lg:aspect-[4/5] lg:min-h-0",
+            section.reverse ? "lg:order-2" : "",
           ].join(" ")}
         >
           <Image
@@ -33,14 +33,14 @@ export function SectionBlock({ section }: SectionBlockProps) {
         <div
           className={[
             "min-w-0 self-center",
-            section.reverse ? "md:order-1" : "",
+            section.reverse ? "lg:order-1" : "",
           ].join(" ")}
         >
           <p className="mb-3 text-[0.7rem] uppercase tracking-[0.2em] text-burgundy sm:mb-4 sm:text-xs sm:tracking-[0.28em]">
             {section.kicker}
           </p>
           {section.title ? (
-            <h2 className="font-serif text-2xl font-medium leading-[1.05] text-balance sm:text-4xl md:text-5xl">
+            <h2 className="font-serif text-2xl font-medium leading-[1.05] text-balance sm:text-3xl md:text-4xl lg:text-5xl">
               {section.title}
             </h2>
           ) : null}

@@ -47,7 +47,7 @@ export function Hero({
             <p className="text-lg leading-7 text-paper/90 sm:text-2xl sm:leading-9">
               {description}
             </p>
-            <p className="mt-4 block w-fit whitespace-nowrap border-y border-paper/45 py-2 text-base font-semibold text-paper sm:text-xl">
+            <p className="mt-4 block w-fit max-w-full whitespace-nowrap border-y border-paper/45 py-2 text-sm font-semibold text-paper sm:text-base md:text-xl">
               {formula}
             </p>
             <div className="mt-10">

@@ -16,6 +16,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -25,6 +26,7 @@ body {
     linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(244, 239, 232, 0) 28rem),
     #f4efe8;
   color: #161412;
+  overflow-x: hidden;
 }
 
 ::selection {
