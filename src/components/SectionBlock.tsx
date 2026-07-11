@@ -10,21 +10,21 @@ export function SectionBlock({ section }: SectionBlockProps) {
     <section>
       <div
         className={[
-          "grid grid-cols-1 gap-4 border-t border-burgundy/20 py-5 sm:grid-cols-[minmax(13rem,38%)_minmax(0,1fr)] sm:gap-6 sm:py-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-9",
-          section.reverse ? "lg:grid-cols-[1.1fr_0.9fr]" : "",
+          "grid grid-cols-1 gap-4 border-t border-burgundy/20 py-5 sm:gap-6 sm:py-7 xl:grid-cols-[0.9fr_1.1fr] xl:items-center xl:gap-9",
+          section.reverse ? "xl:grid-cols-[1.1fr_0.9fr]" : "",
         ].join(" ")}
       >
         <div
           className={[
-            "grain relative aspect-[4/3] overflow-hidden bg-ink/10 shadow-soft sm:h-full sm:min-h-64 lg:aspect-[4/5] lg:min-h-0",
-            section.reverse ? "lg:order-2" : "",
+            "grain relative aspect-[4/3] overflow-hidden bg-ink/10 shadow-soft md:aspect-[16/9] xl:aspect-[4/5]",
+            section.reverse ? "xl:order-2" : "",
           ].join(" ")}
         >
           <Image
             src={section.image}
             alt={section.imageAlt}
             fill
-            sizes="(min-width: 768px) 42vw, (min-width: 640px) 13rem, 7.25rem"
+            sizes="(min-width: 1280px) 42vw, 100vw"
             className="photo-treatment object-cover"
             style={{ objectPosition: section.objectPosition ?? "50% 35%" }}
           />
@@ -33,7 +33,7 @@ export function SectionBlock({ section }: SectionBlockProps) {
         <div
           className={[
             "min-w-0 self-center",
-            section.reverse ? "lg:order-1" : "",
+            section.reverse ? "xl:order-1" : "",
           ].join(" ")}
         >
           <p className="mb-3 text-[0.7rem] uppercase tracking-[0.2em] text-burgundy sm:mb-4 sm:text-xs sm:tracking-[0.28em]">
