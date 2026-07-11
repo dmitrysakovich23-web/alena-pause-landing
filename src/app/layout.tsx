@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ПАУЗА",
-  description: "Визуальный прототип лендинга проекта ПАУЗА.",
+  title: "СИСТЕМА ОСОЗНАННОСТИ «ПАУЗА»",
+  description: "внимание → пауза → реализация",
   robots: {
     index: false,
     follow: false,
