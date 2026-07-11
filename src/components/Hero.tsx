@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 type HeroProps = {
-  brand: string;
   headerLabel: string;
   headerHref: string;
   title: string;
@@ -13,7 +12,6 @@ type HeroProps = {
 };
 
 export function Hero({
-  brand,
   headerLabel,
   headerHref,
   title,
@@ -35,8 +33,7 @@ export function Hero({
       <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/20 to-ink/75" />
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-ink/40 to-transparent" />
       <div className="relative z-10 mx-auto flex min-h-[calc(92svh-3.25rem)] max-w-6xl flex-col justify-between sm:min-h-[calc(88vh-3.25rem)]">
-        <header className="flex items-center justify-between text-xs uppercase tracking-[0.22em]">
-          <span>{brand}</span>
+        <header className="flex justify-end text-xs uppercase tracking-[0.22em]">
           <Link href={headerHref} className="normal-case tracking-[0.12em]">
             {headerLabel}
           </Link>
