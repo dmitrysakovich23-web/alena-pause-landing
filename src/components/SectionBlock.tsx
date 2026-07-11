@@ -44,11 +44,11 @@ export function SectionBlock({ section }: SectionBlockProps) {
               {section.title}
             </h2>
           ) : null}
-          <div className={section.title ? "mt-4 space-y-3 text-sm leading-6 text-muted sm:mt-6 sm:space-y-4 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "space-y-3 text-sm leading-6 text-muted sm:space-y-4 sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
-            {section.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
+          {section.body.length > 0 ? (
+            <p className={section.title ? "mt-4 text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "text-sm leading-6 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
+              {section.body.join(" ")}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>
