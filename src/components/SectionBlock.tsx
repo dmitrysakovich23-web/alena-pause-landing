@@ -40,7 +40,7 @@ export function SectionBlock({ section }: SectionBlockProps) {
             {section.kicker}
           </p>
           {section.title ? (
-            <h2 className="font-serif text-2xl font-medium leading-[1.05] text-balance sm:text-3xl md:text-4xl lg:text-5xl">
+            <h2 className="font-serif text-2xl font-medium leading-[1.05] text-balance [font-variant-numeric:lining-nums] sm:text-3xl md:text-4xl lg:text-5xl">
               {section.title}
             </h2>
           ) : null}
