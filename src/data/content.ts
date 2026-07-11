@@ -20,7 +20,7 @@ export const landingContent = {
     headerHref: "https://t.me/AlenaFEDEL",
     title: "СИСТЕМА ОСОЗНАННОСТИ «ПАУЗА»",
     description: "1 ШАГ из онлайн ретрита осознанности «Верни СЕБЕ СЕБЯ»",
-    formula: "внимание → пауза → реализация",
+    formula: "ВНИМАНИЕ —> пауза —> РЕАЛИЗАЦИЯ",
     button: "ПЕРЕЙТИ К ОПЛАТЕ",
     image: "/images/banner.jpeg",
   },
@@ -134,6 +134,6 @@ export const landingContent = {
 
 export const successContent = {
   title: "СИСТЕМА ОСОЗНАННОСТИ «ПАУЗА»",
-  description: "внимание → пауза → реализация",
+  description: "ВНИМАНИЕ —> пауза —> РЕАЛИЗАЦИЯ",
   backButton: "@AlenaFEDEL",
 };
