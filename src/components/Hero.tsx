@@ -40,7 +40,7 @@ export function Hero({
         </header>
 
         <div className="max-w-4xl pb-5">
-          <h1 className="font-serif text-5xl font-medium leading-[0.92] tracking-normal text-balance sm:text-7xl md:text-8xl">
+          <h1 className="font-serif text-[2.35rem] font-medium leading-[0.95] tracking-normal text-balance sm:text-7xl md:text-8xl">
             {title}
           </h1>
           <div className="mt-7 max-w-2xl border-l border-paper/45 pl-5">

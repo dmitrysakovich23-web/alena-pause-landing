@@ -1,11 +1,10 @@
 import { CTA } from "@/components/CTA";
-import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { SectionBlock } from "@/components/SectionBlock";
 import { landingContent } from "@/data/content";
 
 export default function Home() {
-  const { hero, sections, cta, footer } = landingContent;
+  const { hero, sections, cta } = landingContent;
 
   return (
     <main>
@@ -20,7 +19,6 @@ export default function Home() {
       </div>
 
       <CTA {...cta} />
-      <Footer {...footer} />
     </main>
   );
 }
