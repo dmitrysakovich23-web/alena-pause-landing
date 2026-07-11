@@ -44,7 +44,21 @@ export function SectionBlock({ section }: SectionBlockProps) {
               {section.title}
             </h2>
           ) : null}
-          {section.body.length > 0 ? (
+          {section.body.length > 0 && section.bodyLayout === "paragraphs" ? (
+            <div className={section.title ? "mt-4 space-y-4 text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "space-y-4 text-sm leading-6 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
+              {section.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          ) : null}
+          {section.body.length > 0 && section.bodyLayout === "lines" ? (
+            <div className={section.title ? "mt-4 text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "text-sm leading-6 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
+              {section.body.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
+          ) : null}
+          {section.body.length > 0 && !section.bodyLayout ? (
             <p className={section.title ? "mt-4 text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-8 md:text-lg md:leading-9" : "text-sm leading-6 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9"}>
               {section.body.join(" ")}
             </p>
