@@ -1,22 +1,11 @@
-import Image from "next/image";
 import type { Section } from "@/data/content";
+import { SectionImage } from "@/components/SectionImage";
 
 type SectionBlockProps = {
   section: Section;
 };
 
-const imageSizes: Record<string, { width: number; height: number }> = {
-  "/images/client1.jpeg": { width: 2926, height: 4389 },
-  "/images/stock6.jpeg": { width: 1000, height: 1500 },
-  "/images/client2.jpeg": { width: 3808, height: 5712 },
-  "/images/stock2.jpeg": { width: 736, height: 1177 },
-  "/images/stock10.jpeg": { width: 1080, height: 1920 },
-  "/images/client3.jpeg": { width: 3808, height: 5712 },
-  "/images/stock14.jpeg": { width: 952, height: 951 },
-};
-
 export function SectionBlock({ section }: SectionBlockProps) {
-  const imageSize = imageSizes[section.image] ?? { width: 1200, height: 1600 };
   const isNumberKicker = /^\d+\.$/.test(section.kicker);
   const headingClassName = section.title
     ? "font-serif text-2xl font-medium leading-[1.05] whitespace-pre-line text-balance [font-variant-numeric:lining-nums] sm:text-3xl md:text-4xl lg:text-5xl"
@@ -128,17 +117,14 @@ export function SectionBlock({ section }: SectionBlockProps) {
       >
         <div
           className={[
-            "flex justify-center overflow-hidden bg-transparent shadow-soft",
             section.reverse ? "xl:order-2" : "",
           ].join(" ")}
         >
-          <Image
+          <SectionImage
             src={section.image}
             alt={section.imageAlt}
-            width={imageSize.width}
-            height={imageSize.height}
-            sizes="(min-width: 1280px) 42vw, 100vw"
-            className="photo-treatment h-auto w-full max-w-full object-contain"
+            width={section.image.width}
+            height={section.image.height}
           />
         </div>
         <div

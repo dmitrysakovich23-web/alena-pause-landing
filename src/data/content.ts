@@ -1,10 +1,19 @@
+import type { StaticImageData } from "next/image";
+import client1Image from "../../public/images/client1.jpeg";
+import client2Image from "../../public/images/client2.jpeg";
+import client3Image from "../../public/images/client3.jpeg";
+import stock2Image from "../../public/images/stock2.jpeg";
+import stock6Image from "../../public/images/stock6.jpeg";
+import stock10Image from "../../public/images/stock10.jpeg";
+import stock14Image from "../../public/images/stock14.jpeg";
+
 export type Section = {
   kicker: string;
   title?: string;
   body: string[];
   bodyLayout?: "paragraphs" | "lines";
   presentation?: "goal" | "result" | "closing";
-  image: string;
+  image: StaticImageData;
   imageAlt: string;
   reverse?: boolean;
   objectPosition?: string;
@@ -32,7 +41,7 @@ export const landingContent = {
       title:
         "ЗАМЕТИТЬ свои сильные качества, те которые для нас выглядят чем-то обычным, для другого они покажутся талантом.",
       body: ["Именно с этого шага начинается путь к более уверенной реализации себя."],
-      image: "/images/client1.jpeg",
+      image: client1Image,
       imageAlt: "Портрет автора проекта",
       objectPosition: "50% 24%",
     },
@@ -45,7 +54,7 @@ export const landingContent = {
       ],
       bodyLayout: "paragraphs",
       presentation: "goal",
-      image: "/images/stock6.jpeg",
+      image: stock6Image,
       imageAlt: "Атмосферная черно-белая фотография",
       reverse: true,
       objectPosition: "50% 45%",
@@ -54,7 +63,7 @@ export const landingContent = {
       kicker: "3.",
       title: "ЧТО ВХОДИТ в 1 ШАГ\nсистемы осознанности «ПАУЗА»",
       body: [],
-      image: "/images/client2.jpeg",
+      image: client2Image,
       imageAlt: "Черно-белый портрет автора",
       objectPosition: "50% 20%",
     },
@@ -65,7 +74,7 @@ export const landingContent = {
         "Связь даты рождения с характером человека не считается научно доказанной. Но за годы практики нумерологии накопилось огромное количество наблюдений, в которых люди узнают свои сильные стороны, привычные реакции и повторяющиеся жизненные сценарии. Поэтому я отношусь к дате рождения не как к способу предсказать судьбу, а как к инструменту самопознания и самонаблюдения.",
       ],
       bodyLayout: "paragraphs",
-      image: "/images/stock2.jpeg",
+      image: stock2Image,
       imageAlt: "Атмосферная фотография",
       reverse: true,
       objectPosition: "50% 50%",
@@ -82,7 +91,7 @@ export const landingContent = {
         "• На уже не актуальные, старые мысли (установки)",
       ],
       bodyLayout: "lines",
-      image: "/images/stock10.jpeg",
+      image: stock10Image,
       imageAlt: "Атмосферная фотография",
       objectPosition: "50% 50%",
     },
@@ -103,7 +112,7 @@ export const landingContent = {
       ],
       bodyLayout: "lines",
       presentation: "result",
-      image: "/images/client3.jpeg",
+      image: client3Image,
       imageAlt: "Портрет автора проекта",
       reverse: true,
       objectPosition: "50% 18%",
@@ -123,7 +132,7 @@ export const landingContent = {
       ],
       bodyLayout: "lines",
       presentation: "closing",
-      image: "/images/stock14.jpeg",
+      image: stock14Image,
       imageAlt: "Атмосферная фотография",
       objectPosition: "50% 50%",
     },
