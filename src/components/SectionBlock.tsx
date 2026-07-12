@@ -37,7 +37,7 @@ export function SectionBlock({ section }: SectionBlockProps) {
       return (
         <div className={bodyBaseClassName}>
           <p>{intro}</p>
-          <div className="mt-5 space-y-2 border border-burgundy/60 p-4 text-ink">
+          <div className="mt-5 space-y-2 border border-burgundy p-4 text-ink">
             {items.map((item) => (
               <p key={item}>{item}</p>
             ))}
@@ -54,7 +54,7 @@ export function SectionBlock({ section }: SectionBlockProps) {
       return (
         <div className={bodyBaseClassName}>
           <p className="font-semibold text-ink">{lead}</p>
-          <div className="mt-5 space-y-2 border border-burgundy/60 p-4 text-ink">
+          <div className="mt-5 space-y-2 border border-burgundy p-4 text-ink">
             {framed.map((line) => (
               <p key={line}>{line}</p>
             ))}
