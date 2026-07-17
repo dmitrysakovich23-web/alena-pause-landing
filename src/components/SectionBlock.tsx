@@ -130,6 +130,8 @@ export function SectionBlock({ section }: SectionBlockProps) {
             alt={section.imageAlt}
             width={section.image.width}
             height={section.image.height}
+            frame={section.imageFrame}
+            objectPosition={section.objectPosition}
           />
         </div>
         <div

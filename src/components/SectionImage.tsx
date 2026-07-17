@@ -5,29 +5,35 @@ type SectionImageProps = {
   alt: string;
   width: number;
   height: number;
+  frame?: "square" | "landscape";
+  objectPosition?: string;
 };
 
-export function SectionImage({ src, alt, width, height }: SectionImageProps) {
-  const isPortrait = height > width * 1.15;
+export function SectionImage({
+  src,
+  alt,
+  width,
+  height,
+  frame,
+  objectPosition,
+}: SectionImageProps) {
   const isLandscape = width > height * 1.15;
-  const orientation = isPortrait ? "portrait" : isLandscape ? "landscape" : "square";
+  const imageFrame = frame ?? (isLandscape ? "landscape" : "square");
 
-  const imageClassName = [
-    "photo-treatment h-auto object-contain",
-    orientation === "portrait"
-      ? "w-auto max-h-[78svh] max-w-[88%]"
-      : "w-full max-w-full",
+  const containerClassName = [
+    "relative w-full overflow-hidden",
+    imageFrame === "landscape" ? "aspect-[4/3]" : "aspect-square",
   ].join(" ");
 
   return (
-    <div className="flex justify-center overflow-hidden bg-transparent shadow-soft">
+    <div className={containerClassName}>
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        sizes={orientation === "portrait" ? "(min-width: 1280px) 34vw, 88vw" : "(min-width: 1280px) 42vw, 100vw"}
-        className={imageClassName}
+        fill
+        sizes="(min-width: 1280px) 42vw, 100vw"
+        className="photo-treatment object-cover"
+        style={{ objectPosition: objectPosition ?? "50% 50%" }}
       />
     </div>
   );

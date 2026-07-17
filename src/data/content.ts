@@ -15,6 +15,7 @@ export type Section = {
   presentation?: "goal" | "result" | "closing";
   image: StaticImageData;
   imageAlt: string;
+  imageFrame?: "square" | "landscape";
   reverse?: boolean;
   objectPosition?: string;
 };
@@ -43,6 +44,7 @@ export const landingContent = {
       body: ["Именно с этого шага начинается путь к более уверенной реализации себя."],
       image: client1Image,
       imageAlt: "Портрет автора проекта",
+      imageFrame: "square",
       objectPosition: "50% 24%",
     },
     {
@@ -57,7 +59,8 @@ export const landingContent = {
       image: stock6Image,
       imageAlt: "Атмосферная черно-белая фотография",
       reverse: true,
-      objectPosition: "50% 45%",
+      imageFrame: "square",
+      objectPosition: "50% 74%",
     },
     {
       kicker: "3.",
@@ -65,7 +68,8 @@ export const landingContent = {
       body: [],
       image: client2Image,
       imageAlt: "Черно-белый портрет автора",
-      objectPosition: "50% 20%",
+      imageFrame: "square",
+      objectPosition: "50% 66%",
     },
     {
       kicker: "Самопознание",
@@ -77,7 +81,8 @@ export const landingContent = {
       image: stock2Image,
       imageAlt: "Атмосферная фотография",
       reverse: true,
-      objectPosition: "50% 50%",
+      imageFrame: "square",
+      objectPosition: "50% 38%",
     },
     {
       kicker: "Возвращаем свое внимание себе",
@@ -93,7 +98,8 @@ export const landingContent = {
       bodyLayout: "lines",
       image: stock10Image,
       imageAlt: "Атмосферная фотография",
-      objectPosition: "50% 50%",
+      imageFrame: "square",
+      objectPosition: "50% 36%",
     },
     {
       kicker: "Результат :",
@@ -115,7 +121,8 @@ export const landingContent = {
       image: client3Image,
       imageAlt: "Портрет автора проекта",
       reverse: true,
-      objectPosition: "50% 18%",
+      imageFrame: "landscape",
+      objectPosition: "58% 64%",
     },
     {
       kicker: "4.",
@@ -134,6 +141,7 @@ export const landingContent = {
       presentation: "closing",
       image: stock14Image,
       imageAlt: "Атмосферная фотография",
+      imageFrame: "square",
       objectPosition: "50% 50%",
     },
   ] satisfies Section[],
