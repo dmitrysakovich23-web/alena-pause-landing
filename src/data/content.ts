@@ -69,7 +69,7 @@ export const landingContent = {
       image: client2Image,
       imageAlt: "Черно-белый портрет автора",
       imageFrame: "square",
-      objectPosition: "50% 66%",
+      objectPosition: "50% 100%",
     },
     {
       kicker: "Самопознание",
