@@ -53,7 +53,7 @@ export function SectionBlock({ section }: SectionBlockProps) {
 
       return (
         <div className={bodyBaseClassName}>
-          <p className="font-semibold text-ink">{lead}</p>
+          <p className="whitespace-pre-line font-semibold text-ink">{lead}</p>
           <div className="mt-5 space-y-2 border border-burgundy p-4 text-ink">
             {framed.map((line) => (
               <p key={line}>{line}</p>
@@ -61,7 +61,12 @@ export function SectionBlock({ section }: SectionBlockProps) {
           </div>
           <div className="mt-5 space-y-3">
             {remaining.map((line) => (
-              <p key={line}>{line}</p>
+              <p
+                key={line}
+                className={line.startsWith("Он начинается") ? "text-ink" : undefined}
+              >
+                {line}
+              </p>
             ))}
           </div>
         </div>
