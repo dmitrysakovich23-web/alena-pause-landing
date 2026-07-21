@@ -27,10 +27,26 @@ export function ensureOrdersTable() {
         yookassa_payment_status text,
         confirmation_url text,
         payment_payload jsonb,
+        paid_at timestamptz,
+        canceled_at timestamptz,
+        access_email_sent_at timestamptz,
+        telegram_notification_sent_at timestamptz,
+        last_error text,
         created_at timestamptz NOT NULL DEFAULT now(),
         updated_at timestamptz NOT NULL DEFAULT now()
       )
-    `.then(() => undefined);
+    `
+      .then(() =>
+        sql`
+          ALTER TABLE orders
+            ADD COLUMN IF NOT EXISTS paid_at timestamptz,
+            ADD COLUMN IF NOT EXISTS canceled_at timestamptz,
+            ADD COLUMN IF NOT EXISTS access_email_sent_at timestamptz,
+            ADD COLUMN IF NOT EXISTS telegram_notification_sent_at timestamptz,
+            ADD COLUMN IF NOT EXISTS last_error text
+        `,
+      )
+      .then(() => undefined);
   }
 
   return ordersTableReady;

@@ -24,12 +24,13 @@ export async function POST(request: NextRequest) {
 
   try {
     const env = getServerEnv();
-    const returnUrl = env.yookassaReturnUrl || new URL("/success", request.nextUrl.origin).toString();
     const order = await createPendingOrder({
       email,
       amountValue: env.yookassaAmountValue,
       currency: env.yookassaCurrency,
     });
+    const baseUrl = env.appUrl || request.nextUrl.origin;
+    const returnUrl = new URL(`/payment-return?orderId=${order.id}`, baseUrl).toString();
     const payment = await createYookassaPayment(order, returnUrl);
 
     await attachYookassaPayment(order.id, payment);

@@ -3,21 +3,34 @@ import type { Order } from "@/lib/orders";
 
 type YookassaPaymentResponse = {
   id: string;
-  status: string;
+  status: "pending" | "waiting_for_capture" | "succeeded" | "canceled";
+  amount?: {
+    value?: string;
+    currency?: string;
+  };
   confirmation?: {
     type?: string;
     confirmation_url?: string;
   };
+  metadata?: {
+    orderId?: string;
+    order_id?: string;
+    email?: string;
+  };
+  captured_at?: string;
 };
 
-export async function createYookassaPayment(order: Order, returnUrl: string) {
+function getYookassaAuthHeader() {
   const env = getServerEnv();
-  const auth = Buffer.from(`${env.yookassaShopId}:${env.yookassaSecretKey}`).toString("base64");
 
+  return `Basic ${Buffer.from(`${env.yookassaShopId}:${env.yookassaSecretKey}`).toString("base64")}`;
+}
+
+export async function createYookassaPayment(order: Order, returnUrl: string) {
   const response = await fetch("https://api.yookassa.ru/v3/payments", {
     method: "POST",
     headers: {
-      Authorization: `Basic ${auth}`,
+      Authorization: getYookassaAuthHeader(),
       "Content-Type": "application/json",
       "Idempotence-Key": order.id,
     },
@@ -33,7 +46,7 @@ export async function createYookassaPayment(order: Order, returnUrl: string) {
       },
       description: `Заказ ${order.id}`,
       metadata: {
-        order_id: order.id,
+        orderId: order.id,
         email: order.email,
       },
     }),
@@ -57,4 +70,21 @@ export async function createYookassaPayment(order: Order, returnUrl: string) {
     confirmationUrl,
     raw: payload,
   };
+}
+
+export async function getYookassaPayment(paymentId: string) {
+  const response = await fetch(`https://api.yookassa.ru/v3/payments/${encodeURIComponent(paymentId)}`, {
+    method: "GET",
+    headers: {
+      Authorization: getYookassaAuthHeader(),
+      "Content-Type": "application/json",
+    },
+  });
+  const payload = (await response.json().catch(() => null)) as YookassaPaymentResponse | null;
+
+  if (!response.ok || !payload?.id || !payload.status) {
+    throw new Error(`YooKassa payment fetch failed with status ${response.status}`);
+  }
+
+  return payload;
 }

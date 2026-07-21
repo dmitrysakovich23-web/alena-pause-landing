@@ -7,11 +7,11 @@ const requiredServerEnv = [
 
 type ServerEnv = {
   databaseUrl: string;
+  appUrl?: string;
   yookassaShopId: string;
   yookassaSecretKey: string;
   yookassaAmountValue: string;
   yookassaCurrency: string;
-  yookassaReturnUrl?: string;
 };
 
 export function getServerEnv(): ServerEnv {
@@ -23,10 +23,10 @@ export function getServerEnv(): ServerEnv {
 
   return {
     databaseUrl: process.env.DATABASE_URL!,
+    appUrl: process.env.APP_URL,
     yookassaShopId: process.env.YOOKASSA_SHOP_ID!,
     yookassaSecretKey: process.env.YOOKASSA_SECRET_KEY!,
     yookassaAmountValue: process.env.YOOKASSA_AMOUNT_VALUE!,
     yookassaCurrency: process.env.YOOKASSA_CURRENCY || "RUB",
-    yookassaReturnUrl: process.env.YOOKASSA_RETURN_URL,
   };
 }

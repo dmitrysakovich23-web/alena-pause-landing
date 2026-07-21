@@ -8,6 +8,11 @@ CREATE TABLE IF NOT EXISTS orders (
   yookassa_payment_status text,
   confirmation_url text,
   payment_payload jsonb,
+  paid_at timestamptz,
+  canceled_at timestamptz,
+  access_email_sent_at timestamptz,
+  telegram_notification_sent_at timestamptz,
+  last_error text,
   created_at timestamptz NOT NULL DEFAULT now(),
   updated_at timestamptz NOT NULL DEFAULT now()
 );
