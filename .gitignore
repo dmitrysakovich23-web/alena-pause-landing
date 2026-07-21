@@ -13,6 +13,9 @@ build
 *.pem
 
 # local env files
+.env
+.env.development
+.env.production
 .env*.local
 
 # logs

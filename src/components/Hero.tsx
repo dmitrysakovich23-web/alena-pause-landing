@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CheckoutForm } from "@/components/CheckoutForm";
 
 type HeroProps = {
   headerLabel: string;
@@ -51,12 +52,7 @@ export function Hero({
               {formula}
             </p>
             <div className="mt-10">
-              <Link
-                href="/success"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-burgundy px-6 text-sm font-semibold uppercase tracking-[0.18em] text-paper transition-none hover:bg-burgundy hover:text-paper active:bg-burgundy focus:bg-burgundy focus:text-paper focus:outline-none focus:ring-2 focus:ring-burgundy focus:ring-offset-4 focus:ring-offset-ink"
-              >
-                {button}
-              </Link>
+              <CheckoutForm button={button} variant="dark" />
             </div>
           </div>
         </div>
