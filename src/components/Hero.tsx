@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckoutForm } from "@/components/CheckoutForm";
+import { CheckoutButton } from "@/components/Checkout";
 
 type HeroProps = {
   headerLabel: string;
@@ -52,7 +52,7 @@ export function Hero({
               {formula}
             </p>
             <div className="mt-10">
-              <CheckoutForm button={button} variant="dark" />
+              <CheckoutButton variant="hero">{button}</CheckoutButton>
             </div>
           </div>
         </div>
